@@ -26,13 +26,13 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tmhedberg/SimpylFold'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
-Plug 'christoomey/vim-sort-motion'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
+Plug 'jeetsukumaran/vim-pythonsense'
 
 call plug#end()
 
@@ -48,6 +48,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:UltiSnipsExpandTrigger       = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
+let g:ultisnips_python_style="numpy"
 
 " Netrw settings
 let g:netrw_browse_split = 0
@@ -56,11 +57,10 @@ let g:netrw_liststyle = 3
 let g:netrw_altv = 0
 let g:netrw_winsize = 50
 let g:netrw_list_hide=netrw_gitignore#Hide()
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Vexplore | endif
 
 " Autopairs settings
 " Add shortcut for jumping out of pairs
+" inoremap <C-k> <esc>:call AutoPairsJump()<CR>a
 set showmatch		" Show matching brackets.
 
 " Tmux settings
@@ -85,16 +85,19 @@ endif
 colorscheme challenger_deep
 set cursorline
 
-" Buffer and tab management 
+" Buffer and tab management
 " New terminal with :tab ter and switch with <C-k>
 " In case there's no tmux !
 tnoremap <C-k> <C-w>Ngt
 nnoremap <C-k> gt
 set autowrite		" Automatically save before commands like :next and :make
 set hidden		" Hide buffers when they are abandoned
-
+set nobackup " We have git for that
 " Jump to last position on reload
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+au BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$")
+      \ | exe "normal! g'\""
+      \ | endif
 
 " In-file searching
 nnoremap <esc><esc> :noh<return><esc> " Clear search highlight with ESC
@@ -102,6 +105,9 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+
+" Remove trailing spaces
+autocmd BufWritePre * %s/\s\+$//e
 
 " Misc
 nnoremap <Space> <Nop>
@@ -134,11 +140,20 @@ EOF
 autocmd FileType python set shiftwidth=4
 autocmd FileType python set tabstop=4
 autocmd FileType python set softtabstop=4
+autocmd FileType python set textwidth=80
+autocmd FileType python set colorcolumn=+1
 
-" English correcting
-setlocal spell
-set spelllang=en,fr
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+
+
+
+" " English correcting
+" setlocal spell
+" set spelllang=en,fr
+" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+
+
 
 " HTML cleaning
 function! HTMLClean()
@@ -149,6 +164,9 @@ function! HTMLClean()
   normal! G=gg " Auto indent file
 endfunction
 command! HTMLClean :call HTMLClean()
+
+
+
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
