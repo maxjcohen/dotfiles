@@ -5,42 +5,211 @@
 " It is recommended to make changes after sourcing debian.vim since it alters
 " the value of the 'compatible' option.
 
+
+""""""""""""""""""""""""""""""""""""""""
+" Source local settings
+""""""""""""""""""""""""""""""""""""""""
+
+
 runtime! debian.vim
+
+" Source a global configuration file if available
+if filereadable("/etc/vim/vimrc.local")
+  source /etc/vim/vimrc.local
+endif
+
+
+""""""""""""""""""""""""""""""""""""""""
+" Install pluggins
+""""""""""""""""""""""""""""""""""""""""
+
+
+" Install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 " Pluggin loading
 call plug#begin('~/.vim/plugged')
 
+" Theme / UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'sheerun/vim-polyglot'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'tmhedberg/SimpylFold'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'bling/vim-bufferline'
+
+" Mappings
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+" Git
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'lambdalisue/battery.vim'
+
+" Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Tmux
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
+
+" Python
+Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'Vimjas/vim-python-pep8-indent'
+
+" Misc
+Plug 'tmhedberg/SimpylFold'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ervandew/supertab'
+
 call plug#end()
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" Enable filetype detection for plugins and indentation options
+filetype plugin indent on
 
-" Theme/interface
+
+""""""""""""""""""""""""""""""""""""""""
+" Configure pluggins
+""""""""""""""""""""""""""""""""""""""""
+
+
+" UltiSnips settings
+let g:UltiSnipsExpandTrigger       = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
+let g:ultisnips_python_style="numpy"
+
+" Netrw settings
+let g:netrw_browse_split = 0
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_altv = 0
+let g:netrw_winsize = 50
+let g:netrw_list_hide=netrw_gitignore#Hide()
+
+" Autopairs settings
+" Add shortcut for jumping out of pairs
+inoremap <C-k> <esc>:call AutoPairsJump()<CR>a
+" Show matching brackets.
+set showmatch
+
+" Tmux settings
+let g:VtrStripLeadingWhitespace = 0
+let g:VtrClearEmptyLines = 0
+let g:VtrAppendNewline = 1
+noremap <Leader>rf :VtrSendFile<cr>
+noremap <Leader>rr :VtrSendLinesToRunner<cr>
+
+" Ctrl-P replacer
+set wildmenu
+set path+=** " Add subdirectories to path
+nnoremap <C-p> :find *
+set wildignore+=*.pyc,*.ipynb,**/.git/**,**/.env/**
+
+" Theme / UI
+silent! colorscheme challenger_deep
 let g:airline_theme='simple'
+set laststatus=2
 set background=dark
 if has("syntax")
   syntax on
 endif
-colorscheme challenger_deep
 set cursorline
 
-"python with virtualenv support
+
+""""""""""""""""""""""""""""""""""""""""
+" Buffer and tab management
+""""""""""""""""""""""""""""""""""""""""
+
+
+" Automatically save before commands like :next and :make
+set autowrite
+" Hide buffers when they are abandoned
+set hidden
+" Disable backup and swap, we have git for that
+set nobackup
+set noswapfile
+" Jump to last position on reload
+au BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$")
+      \ | exe "normal! g'\""
+      \ | endif
+" New terminal with :tab ter and switch with <C-k>
+" In case there's no tmux !
+tnoremap <C-k> <C-w>Ngt
+nnoremap <C-k> gt
+
+
+""""""""""""""""""""""""""""""""""""""""
+" In-file searching
+""""""""""""""""""""""""""""""""""""""""
+
+
+" Clear search highlight with ESC
+nnoremap <esc><esc> :noh<return><esc>
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+
+""""""""""""""""""""""""""""""""""""""""
+" Tabs
+""""""""""""""""""""""""""""""""""""""""
+
+
+" Default tabs
+set autoindent
+set smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set complete+=]
+
+
+""""""""""""""""""""""""""""""""""""""""
+" Languages specifics
+""""""""""""""""""""""""""""""""""""""""
+
+if has("autocmd")
+    " LaTex
+    au FileType tex set linebreak
+    au FileType tex compiler tex
+    au FileType tex set makeprg=pdflatex\ %
+    au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
+    au FileType tex set spell
+
+    au FileType python set shiftwidth=4
+    au FileType python set softtabstop=4
+    au FileType python set expandtab
+    au FileType python set textwidth=80
+    au FileType python set colorcolumn=+1
+    au FileType python set foldmethod=indent
+    au FileType python set foldcolumn=0
+    au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
+    au FileType python compiler python
+
+    " CVS
+    au FileType csv set nowrap
+endif
+
+" LaTeX
+let g:tex_flavor = "latex"
+let g:tex_conceal='abdmg'
+set conceallevel=1
+command -range LatexIndent :<line1>,<line2>!latexindent.pl <NL> :<line1>,<line2>retab
+" function! IndentLatex()
+"     :silent !latexindent.pl
+"     :'<,'>retab
+"     :redraw!
+" endfunction
+
+
+" Python
+" Load virtualenv
 py3 << EOF
 import os
 import sys
@@ -51,40 +220,49 @@ if 'VIRTUAL_ENV' in os.environ:
     exec(f.read(), dict(__file__=activate_this))
 EOF
 
-set encoding=utf-8
+" HTML cleaning
+function! HTMLClean()
+  normal! ggVGJ " Join all lines
+  :s/> \+\([^ ]\)/>\1/g " Remove space after tags
+  :s/\([^ ]\) \+</\1</g " Remove space before tags
+  :s/></>\r</g " Add CR after each tag
+  normal! G=gg " Auto indent file
+endfunction
+command! HTMLClean :call HTMLClean()
 
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-filetype plugin indent on
+""""""""""""""""""""""""""""""""""""""""
+" Misc
+""""""""""""""""""""""""""""""""""""""""
 
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-"set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
-set hidden		" Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
-set hlsearch
 
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
+" Remove trailing spaces
+autocmd BufWritePre * %s/\s\+$//e
 
-" Display line number
-:set number
+" Change learder key
+nnoremap <Space> <Nop>
+let mapleader = "\<Space>"
+nnoremap <Leader>sop :source ~/.vimrc<cr>
 
-" Folding method
-set foldmethod=indent
+" Scroll 4 lines bellow cursor
+set scrolloff=4
+" Show (partial) command in status line.
+set showcmd
+set number
+set encoding=utf8
+" Make backspace behave as expected
+set backspace=eol,indent,start
+
+" Reload a file when it is changed from the outside
+set autoread
+
 set foldlevel=99
 
-set wildmenu
+" English correcting
+set spelllang=en
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-let g:ycm_autoclose_preview_window_after_insertion = 1
+set updatetime=300
+
+" For invisibles
+set listchars=tab:▸\ ,eol:¬
