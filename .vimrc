@@ -1,3 +1,4 @@
+
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
 " the call to :runtime you can find below.  If you wish to change any of those
 " settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
@@ -37,7 +38,7 @@ call plug#begin('~/.vim/plugged')
 " Theme / UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'arcticicestudio/nord-vim'
 
 " Mappings
 Plug 'tpope/vim-surround'
@@ -109,14 +110,24 @@ nnoremap <C-p> :find *
 set wildignore+=*.pyc,*.ipynb,**/.git/**,**/.env/**
 
 " Theme / UI
-silent! colorscheme challenger_deep
-let g:airline_theme='simple'
-set laststatus=2
-set background=dark
+try
+    colorscheme nord
+    let g:airline_theme='nord'
+    set termguicolors
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme default
+    set background=dark
+endtry
+" Syntax highlighting
 if has("syntax")
   syntax on
 endif
+" Always display status line
+set laststatus=2
 set cursorline
+" Set Vim-specific sequences for RGB colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -266,3 +277,4 @@ set updatetime=300
 
 " For invisibles
 set listchars=tab:▸\ ,eol:¬
+
