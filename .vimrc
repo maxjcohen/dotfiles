@@ -282,3 +282,7 @@ set updatetime=300
 " For invisibles
 set listchars=tab:▸\ ,eol:¬
 
+if executable('black')
+    noremap <Leader>k m`:%!black -q -<CR>``
+endif
+
