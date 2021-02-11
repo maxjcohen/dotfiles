@@ -113,7 +113,6 @@ set wildignore+=*.pyc,*.ipynb,**/.git/**,**/.env/**
 try
     colorscheme nord
     let g:airline_theme='nord'
-    set termguicolors
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
     set background=dark
@@ -126,8 +125,11 @@ endif
 set laststatus=2
 set cursorline
 " Set Vim-specific sequences for RGB colors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+if exists('+termguicolors')
+    set termguicolors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""
