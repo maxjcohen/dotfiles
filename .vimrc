@@ -205,6 +205,10 @@ if has("autocmd")
 
     " CVS
     au FileType csv set nowrap
+
+    " Git
+    au FileType gitcommit set spell
+
 endif
 
 " LaTeX
