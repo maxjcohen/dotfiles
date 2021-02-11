@@ -189,7 +189,7 @@ if has("autocmd")
     " LaTex
     au FileType tex set linebreak
     au FileType tex compiler tex
-    au FileType tex set makeprg=pdflatex\ %
+    au FileType tex set makeprg=pdflatex\ --shell-escape\ %
     au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
     au FileType tex set spell
 
