@@ -176,10 +176,8 @@ set smartcase
 " Default tabs
 set autoindent
 set smarttab
-set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set expandtab
 set complete+=]
 
 
@@ -195,13 +193,13 @@ if has("autocmd")
     au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
     au FileType tex set spell
 
-    au FileType python set shiftwidth=4
-    au FileType python set softtabstop=4
+    " Python
     au FileType python set expandtab
-    au FileType python set textwidth=80
+    au FileType python set textwidth=88
     au FileType python set colorcolumn=+1
     au FileType python set foldmethod=indent
     au FileType python set foldcolumn=0
+    au FileType python set formatoptions=
     au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
     au FileType python compiler python
 
