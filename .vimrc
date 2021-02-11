@@ -260,7 +260,7 @@ let mapleader = "\<Space>"
 nnoremap <Leader>sop :source ~/.vimrc<cr>
 
 " Scroll 4 lines bellow cursor
-set scrolloff=4
+set scrolloff=10
 " Show (partial) command in status line.
 set showcmd
 set number
