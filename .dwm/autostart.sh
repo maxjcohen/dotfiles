@@ -1,0 +1,1 @@
+/home/mrmojo/libs/dwm/autostart.sh
