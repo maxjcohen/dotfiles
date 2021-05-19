@@ -193,8 +193,9 @@ if has("autocmd")
     au FileType tex set linebreak
     au FileType tex compiler tex
     au FileType tex set makeprg=pdflatex\ --shell-escape\ main.tex
-    au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
+    au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$', '$$': '$$'})
     au FileType tex set spell
+    au FileType tex set noexpandtab
 
     " Python
     au FileType python set shiftwidth=4
@@ -273,6 +274,8 @@ set updatetime=300
 
 " For invisibles
 set listchars=tab:▸\ ,eol:¬
+
+let g:tex_no_error=1
 
 if executable('black')
     noremap <Leader>k m`:%!black -q -<CR>``
