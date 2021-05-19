@@ -197,6 +197,8 @@ if has("autocmd")
     au FileType tex set spell
 
     " Python
+    au FileType python set shiftwidth=4
+    au FileType python set softtabstop=4
     au FileType python set expandtab
     au FileType python set textwidth=88
     au FileType python set colorcolumn=+1
@@ -204,7 +206,7 @@ if has("autocmd")
     au FileType python set foldcolumn=0
     au FileType python set formatoptions=
     au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
-    au FileType python compiler python
+    " au FileType python compiler python
 
     " CVS
     au FileType csv set nowrap
