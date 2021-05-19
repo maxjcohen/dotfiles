@@ -1,3 +1,3 @@
-for f in $(ls -A); do
-    ln -sf $(realpath $f) $HOME/$f
+for f in $(cat FILES); do
+    ln -sfn $(realpath $f) $HOME/$f
 done
