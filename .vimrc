@@ -227,19 +227,6 @@ command -range LatexIndent :<line1>,<line2>!latexindent.pl <NL> :<line1>,<line2>
 "     :redraw!
 " endfunction
 
-
-" Python
-" Load virtualenv
-py3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  with open(activate_this, "r") as f:
-    exec(f.read(), dict(__file__=activate_this))
-EOF
-
 " HTML cleaning
 function! HTMLClean()
   normal! ggVGJ " Join all lines
