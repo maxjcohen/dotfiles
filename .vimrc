@@ -278,3 +278,5 @@ if executable('black')
     noremap <Leader>k m`:%!black -q -<CR>``
 endif
 
+nnoremap <F8> :TagbarToggle<CR>
+nnoremap <F6> :redraw!<CR>
