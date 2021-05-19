@@ -280,3 +280,5 @@ endif
 
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap <F6> :redraw!<CR>
+
+vnoremap <C-c> :w !xsel -b<CR><CR>
