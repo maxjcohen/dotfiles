@@ -65,6 +65,9 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
 
+Plug 'lervag/vimtex'
+Plug 'preservim/tagbar'
+
 call plug#end()
 
 " Enable filetype detection for plugins and indentation options
