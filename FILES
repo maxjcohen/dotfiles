@@ -5,3 +5,4 @@ tmux-launch.sh
 .vimrc
 .xbindkeysrc
 .xinitrc
+.local
