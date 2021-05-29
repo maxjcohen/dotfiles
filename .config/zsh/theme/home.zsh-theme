@@ -1,4 +1,5 @@
 setopt PROMPT_SUBST
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 PROMPT=""
 
@@ -21,6 +22,14 @@ function git_branch(){
     fi
 }
 PROMPT+='$(git_branch)'
+
+# Virtualenv currently activated
+prompt_virtualenv() {
+  if [[ -n $VIRTUAL_ENV  ]]; then
+      echo "%F{#d08770}[$(basename $VIRTUAL_ENV)]%f "
+  fi
+}
+PROMPT+='$(prompt_virtualenv)'
 
 # Exit code color
 PROMPT+="%(?.%F{green}.%F{red})>%f "
