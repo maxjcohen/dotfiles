@@ -8,13 +8,13 @@ tmux new-session -d -s $session
 
 # Main window (Vim + term)
 tmux rename-window -t 0 'Main'
-ls ".env" > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-				tmux send-keys -t 'Main' '. .env/bin/activate' C-m
-fi
-tmux split-window -hb 
-tmux send-keys -t 'Main' 'vim .' C-m
-tmux resize-pane -R 30
+# ls ".env" > /dev/null 2>&1
+# if [ $? -eq 0 ]; then
+#     tmux send-keys -t 'Main' '. .env/bin/activate' C-m
+# fi
+# tmux split-window -hb
+tmux send-keys -t 'Main' 'vim' C-m
+# tmux resize-pane -R 30
 
 # Second window (Top and nvidia-smi)
 tmux new-window -n 'Watch'
