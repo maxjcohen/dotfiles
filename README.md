@@ -23,12 +23,12 @@ make clean
 
 ## Description of files
 Config files:
-- `.dwm`: [`dwm`](https://dwm.suckless.org/) config files
-- `.gitconfig`: [`git`](https://git-scm.com/) config
-- `.tmux.conf`: [`tmux`](https://github.com/tmux/tmux) config
-- `.vimrc`: [`vim`](https://www.vim.org/) config (`.vim` folder to come)
-- `.xbindkeysrc`: [`Xbindkeys`](https://wiki.archlinux.org/title/Xbindkeys) config
-- `.xinitrc`: [`xinit`](https://www.x.org/archive/X11R6.8.2/doc/xinit.1.html) config
+- `.dwm`: [dwm](https://dwm.suckless.org/) config files
+- `.gitconfig`: [git](https://git-scm.com/) config
+- `.tmux.conf`: [tmux](https://github.com/tmux/tmux) config
+- `.vimrc`: [vim](https://www.vim.org/) config (`.vim` folder to come)
+- `.xbindkeysrc`: [Xbindkeys](https://wiki.archlinux.org/title/Xbindkeys) config
+- `.xinitrc`: [xinit](https://www.x.org/archive/X11R6.8.2/doc/xinit.1.html) config
 
 Resources folders:
 - `.local`: various local resources (background, fonts, etc.)
