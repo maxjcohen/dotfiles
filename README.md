@@ -29,6 +29,12 @@ Config files:
 - `.vimrc`: [vim](https://www.vim.org/) config (`.vim` folder to come)
 - `.xbindkeysrc`: [Xbindkeys](https://wiki.archlinux.org/title/Xbindkeys) config
 - `.xinitrc`: [xinit](https://www.x.org/archive/X11R6.8.2/doc/xinit.1.html) config
+- `.zshrc`: [zsh](https://www.zsh.org/) config
+
+Config folder `.config`
+- `protonvpn/user_configurations.json`: [protonvpn](https://protonvpn.com/) config
+- `zathura/zathrarc`: [zathura](https://github.com/pwmt/zathura) config
+- `zsh/theme/home.zsh`: homemade zsh theme
 
 Resources folders:
 - `.local`: various local resources (background, fonts, etc.)
