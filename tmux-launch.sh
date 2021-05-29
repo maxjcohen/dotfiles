@@ -22,4 +22,19 @@ tmux send-keys -t 'Watch' 'htop' C-m
 tmux split-window -h
 tmux send-keys -t 'Watch' 'watch -n 2 "nvidia-smi"' C-m
 
+# Jupyter lab
+while [ ! -z $1 ]; do
+    case "$1" in
+	jupyter)
+	    tmux new-window -n 'Jupyter'
+	    tmux send-keys -t 'Jupyter' 'python -m jupyter lab' C-m
+	    ;;
+	tensorboard)
+	    tmux new-window -n 'Tensorboard'
+	    tmux send-keys -t 'Tensorboard' 'tensorboard --logdir lightning_logs' C-m
+	    ;;
+    esac
+    shift
+done
+
 tmux attach-session -t $session:0
