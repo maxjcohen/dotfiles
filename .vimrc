@@ -215,6 +215,8 @@ if has("autocmd")
     " Git
     au FileType gitcommit set spell
 
+    " Nord fix for concealed
+    au Colorscheme * hi! link Conceal Number
 endif
 
 " LaTeX
