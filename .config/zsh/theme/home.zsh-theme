@@ -31,5 +31,13 @@ prompt_virtualenv() {
 }
 PROMPT+='$(prompt_virtualenv)'
 
+# Jobs
+function prompt_jobs() {
+    if [[ -n "$(jobs)" ]]; then
+	echo "%F{magenta}[%j] "
+    fi
+}
+PROMPT+='$(prompt_jobs)'
+
 # Exit code color
 PROMPT+="%(?.%F{green}.%F{red}(%?%))%(!.#.>)%f "
