@@ -32,4 +32,4 @@ prompt_virtualenv() {
 PROMPT+='$(prompt_virtualenv)'
 
 # Exit code color
-PROMPT+="%(?.%F{green}.%F{red})>%f "
+PROMPT+="%(?.%F{green}.%F{red}(%?%))%(!.#.>)%f "
