@@ -36,5 +36,6 @@ test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 # Alias
 alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 alias :q=exit
