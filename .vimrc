@@ -217,6 +217,8 @@ if has("autocmd")
 
     " Nord fix for concealed
     au Colorscheme * hi! link Conceal Number
+
+    au BufNewFile,BufRead *.zsh-theme set syntax=zsh
 endif
 
 " LaTeX
