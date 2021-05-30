@@ -31,5 +31,10 @@ zle -N down-line-or-beginning-search
 # Theme
 source ~/.config/zsh/theme/home.zsh-theme
 
-# Quit
+# Colordir for nord theme
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
+
+# Alias
+alias ls='ls --color=auto'
+
 alias :q=exit
