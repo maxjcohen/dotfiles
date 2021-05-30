@@ -35,6 +35,7 @@ Config folder `.config`
 - `protonvpn/user_configurations.json`: [protonvpn](https://protonvpn.com/) config
 - `zathura/zathrarc`: [zathura](https://github.com/pwmt/zathura) config
 - `zsh/theme/home.zsh`: homemade zsh theme
+- `alacritty/alacritty.yml`: [alacritty](https://github.com/alacritty/alacritty) config
 
 Resources folders:
 - `.local`: various local resources (background, fonts, etc.)
