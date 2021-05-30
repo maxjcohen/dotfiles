@@ -29,6 +29,8 @@ Config files:
 - `.vimrc`: [vim](https://www.vim.org/) config (`.vim` folder to come)
 - `.xbindkeysrc`: [Xbindkeys](https://wiki.archlinux.org/title/Xbindkeys) config
 - `.xinitrc`: [xinit](https://www.x.org/archive/X11R6.8.2/doc/xinit.1.html) config
+- `.Xresources`: [xresources](https://wiki.archlinux.org/title/X_resources) config (Nord theme)
+- `.dir_colors`: [dir_colors](https://man.archlinux.org/man/dircolors.1.html) colors (Nord theme)
 - `.zshrc`: [zsh](https://www.zsh.org/) config
 
 Config folder `.config`
