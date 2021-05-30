@@ -35,7 +35,7 @@ function git_branch(){
 PROMPT+='$(git_branch)'
 
 # Virtualenv currently activated
-prompt_virtualenv() {
+function prompt_virtualenv() {
   if [[ -n $VIRTUAL_ENV  ]]; then
       echo "%F{#d08770}[$(basename $VIRTUAL_ENV)]%f "
   fi
