@@ -51,5 +51,5 @@ fi
 xbindkeys
 
 # Window manager
-# exec /home/mrmojo/libs/qtile/.env/bin/qtile
-exec dwm
+# exec dwm
+exec /home/mrmojo/libs/qtile/.env/bin/qtile start
