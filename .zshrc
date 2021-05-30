@@ -30,3 +30,6 @@ zle -N down-line-or-beginning-search
 
 # Theme
 source ~/.config/zsh/theme/home.zsh-theme
+
+# Quit
+alias :q=exit
