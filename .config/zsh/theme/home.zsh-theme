@@ -34,7 +34,7 @@ PROMPT+='$(prompt_virtualenv)'
 # Jobs
 function prompt_jobs() {
     if [[ -n "$(jobs)" ]]; then
-	echo "%F{magenta}[%j] "
+	echo "%F{magenta}[%j]%f "
     fi
 }
 PROMPT+='$(prompt_jobs)'
