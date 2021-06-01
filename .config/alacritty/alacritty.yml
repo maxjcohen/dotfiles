@@ -12,6 +12,7 @@ font:
     normal:
         family: Source Code Pro
         style: Regular
+    size: 13
 
 colors:
   primary:
