@@ -20,6 +20,14 @@ unsetopt autocd beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
+
+source ~/.config/zsh/pluggins/zsh-autosuggestions/zsh-autosuggestions.zsh
+export ZSH_AUTOSUGGEST_STRATEGY=(completion)
+export ZSH_AUTOSUGGEST_USE_ASYNC=true
+setopt menucomplete
+setopt globcomplete
+zstyle ':completion:*' special-dirs true
+
 # History control
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
