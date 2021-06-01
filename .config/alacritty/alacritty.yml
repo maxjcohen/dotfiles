@@ -8,6 +8,11 @@
 # References:
 #   https://github.com/alacritty/alacritty
 
+font:
+    normal:
+        family: Source Code Pro
+        style: Regular
+
 colors:
   primary:
     background: '#2e3440'
