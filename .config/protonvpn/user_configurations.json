@@ -1,17 +1,16 @@
 {
-    "connection": {
-        "default_protocol": "udp",
-        "killswitch": 0,
-        "dns": {
-            "status": 1,
-            "custom_dns": []
-        },
-        "split_tunneling": {
-            "status": 0,
-            "ip_list": []
-        }
+    "default_protocol": "udp",
+    "killswitch": 0,
+    "dns": {
+        "dns_status": 1,
+        "custom_dns": []
     },
-    "general": {},
-    "advanced": {},
-    "tray": {}
+    "split_tunneling": {
+        "split_tunneling_status": 0,
+        "ip_list": []
+    },
+    "netshield": 0,
+    "secure_core": 0,
+    "vpn_accelerator": 1
 }
+
