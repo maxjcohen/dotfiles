@@ -247,6 +247,8 @@ command! HTMLClean :call HTMLClean()
 " Misc
 """"""""""""""""""""""""""""""""""""""""
 
+" Set diffsplit to vertical
+set diffopt+=vertical
 
 " Remove trailing spaces
 autocmd BufWritePre * %s/\s\+$//e
