@@ -88,10 +88,10 @@ let g:ultisnips_python_style="numpy"
 " Netrw settings
 let g:netrw_browse_split = 0
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_altv = 0
-let g:netrw_winsize = 50
-let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_liststyle = 0
+let g:netrw_list_hide = netrw_gitignore#Hide()
+let g:netrw_sort_by = "name"
+let g:netrw_sort_options = "i"
 
 " Autopairs settings
 " Add shortcut for jumping out of pairs
