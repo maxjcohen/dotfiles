@@ -24,7 +24,6 @@ bindkey -e
 source ~/.config/zsh/pluggins/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_STRATEGY=(completion)
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
-setopt menucomplete
 setopt globcomplete
 zstyle ':completion:*' special-dirs true
 
