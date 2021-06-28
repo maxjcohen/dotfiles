@@ -192,38 +192,45 @@ set complete+=]
 """"""""""""""""""""""""""""""""""""""""
 
 if has("autocmd")
-    " LaTex
-    au FileType tex set linebreak
-    au FileType tex compiler tex
-    au FileType tex set makeprg=pdflatex\ --shell-escape\ %
-    au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$', '$$': '$$'})
-    au FileType tex set spell
-    au FileType tex set noexpandtab
-    au FileType tex nnoremap <Leader>p :silent execute "!zathura " . expand("%:r") . ".pdf 2> /dev/null &" \| :redraw!<cr>
-    au FileType tex nnoremap <Leader>m :silent execute "!pdflatex % > /dev/null" \| :redraw!<cr>
+    augroup LaTex
+	autocmd!
+	au FileType tex set linebreak
+	au FileType tex compiler tex
+	au FileType tex set makeprg=pdflatex\ --shell-escape\ %
+	au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$', '$$': '$$'})
+	au FileType tex set spell
+	au FileType tex set expandtab
+	au FileType tex nnoremap <Leader>p :silent execute "!zathura " . expand("%:r") . ".pdf 2> /dev/null &" \| :redraw!<cr>
+	au FileType tex nnoremap <Leader>m :silent execute "!pdflatex % > /dev/null" \| :redraw!<cr>
+    augroup END
 
-    " Python
-    au FileType python set shiftwidth=4
-    au FileType python set softtabstop=4
-    au FileType python set expandtab
-    au FileType python set textwidth=88
-    au FileType python set colorcolumn=+1
-    au FileType python set foldmethod=indent
-    au FileType python set foldcolumn=0
-    au FileType python set formatoptions=
-    au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
-    " au FileType python compiler python
+    augroup python
+	autocmd!
+	au FileType python set shiftwidth=4
+	au FileType python set softtabstop=4
+	au FileType python set expandtab
+	au FileType python set textwidth=200
+	au FileType python set colorcolumn=+1
+	au FileType python set foldmethod=indent
+	au FileType python set foldcolumn=0
+	au FileType python set formatoptions=
+	au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
+	" au FileType python compiler python
+    augroup END
 
-    " CVS
-    au FileType csv set nowrap
+    augroup misc
+	autocmd!
+	" CVS
+	au FileType csv set nowrap
 
-    " Git
-    au FileType gitcommit set spell
+	" Git
+	au FileType gitcommit set spell
 
-    " Nord fix for concealed
-    au Colorscheme * hi! link Conceal Number
+	" Nord fix for concealed
+	au Colorscheme * hi! link Conceal Number
 
-    au BufNewFile,BufRead *.zsh-theme set syntax=zsh
+	au BufNewFile,BufRead *.zsh-theme set syntax=zsh
+    augroup END
 endif
 
 " LaTeX
