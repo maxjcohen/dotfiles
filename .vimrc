@@ -199,6 +199,7 @@ if has("autocmd")
     au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$', '$$': '$$'})
     au FileType tex set spell
     au FileType tex set noexpandtab
+    au FileType tex nnoremap <Leader>p :silent execute "!zathura " . expand("%:r") . ".pdf 2> /dev/null &" \| :redraw!<cr>
 
     " Python
     au FileType python set shiftwidth=4
