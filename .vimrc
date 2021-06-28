@@ -170,6 +170,9 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" Map [q ]q to move through quickfix
+nnoremap [q :cprevious<cr>
+nnoremap ]q :cnext<cr>
 
 """"""""""""""""""""""""""""""""""""""""
 " Tabs
