@@ -38,6 +38,7 @@ Config folder `.config`
 - `zathura/zathrarc`: [zathura](https://github.com/pwmt/zathura) config
 - `zsh/theme/home.zsh`: homemade zsh theme
 - `alacritty/alacritty.yml`: [alacritty](https://github.com/alacritty/alacritty) config
+- `htop/htoprc`: [htop](https://htop.dev/) config
 
 Resources folders:
 - `.local`: various local resources (background, fonts, etc.)
