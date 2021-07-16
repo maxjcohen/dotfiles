@@ -221,6 +221,7 @@ if has("autocmd")
     augroup misc
 	autocmd!
 	" CVS
+	au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
 	au FileType csv set nowrap
 
 	" Git
