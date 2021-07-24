@@ -1,3 +1,7 @@
 [user]
 	email = max.zagouri@pm.me
 	name = Max Cohen
+[core]
+	editor = vim
+[commit]
+	verbose = true
