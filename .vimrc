@@ -223,6 +223,7 @@ if has("autocmd")
 	" CVS
 	au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
 	au FileType csv set nowrap
+	au FileType csv set readonly
 
 	" Git
 	au FileType gitcommit set spell
