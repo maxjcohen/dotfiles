@@ -209,7 +209,7 @@ if has("autocmd")
 	au FileType python set shiftwidth=4
 	au FileType python set softtabstop=4
 	au FileType python set expandtab
-	au FileType python set textwidth=200
+	au FileType python set textwidth=88
 	au FileType python set colorcolumn=+1
 	au FileType python set foldmethod=indent
 	au FileType python set foldcolumn=0
@@ -227,6 +227,8 @@ if has("autocmd")
 
 	" Git
 	au FileType gitcommit set spell
+	au FileType gitcommit set textwidth=72
+	au FileType gitcommit set colorcolumn=+1
 
 	" Nord fix for concealed
 	au Colorscheme * hi! link Conceal Number
