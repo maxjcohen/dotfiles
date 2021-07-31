@@ -17,4 +17,4 @@ function menu {
 	--preview-window=70%,wrap,border-left
 }
 
-$(menu)
+echo $(menu)
