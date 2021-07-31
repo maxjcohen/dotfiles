@@ -68,15 +68,15 @@
 # Volume options
 
 # Increase volume
-"pactl set-sink-volume @DEFAULT_SINK@ +5000; kill -s USR1 $(pidof out)"
+"pactl set-sink-volume @DEFAULT_SINK@ +5000"
   XF86AudioRaiseVolume
 
 # Decrease volume
-"pactl set-sink-volume @DEFAULT_SINK@ -5000; kill -s USR1 $(pidof out)"
+"pactl set-sink-volume @DEFAULT_SINK@ -5000"
   XF86AudioLowerVolume
 
 # Mute volume
-"pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -s USR1 $(pidof out)"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
   XF86AudioMute
 
 "(setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap fr || setxkbmap us"
