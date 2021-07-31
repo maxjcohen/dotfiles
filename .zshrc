@@ -57,3 +57,5 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 alias :q=exit
+
+alias mplayer="mplayer -lavdopts threads=4"
