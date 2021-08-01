@@ -32,6 +32,7 @@ Config files:
 - `.Xresources`: [xresources](https://wiki.archlinux.org/title/X_resources) config (Nord theme)
 - `.dir_colors`: [dir_colors](https://man.archlinux.org/man/dircolors.1.html) colors (Nord theme)
 - `.zshrc`: [zsh](https://www.zsh.org/) config
+- `.zshenv`: [zsh](https://www.zsh.org/) always loaded, see [manual](https://zsh.sourceforge.io/Intro/intro_3.html) and [thread](https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout#71258)
 
 Config folder `.config`
 - `protonvpn/user_configurations.json`: [protonvpn](https://protonvpn.com/) config

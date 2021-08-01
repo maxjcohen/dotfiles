@@ -35,14 +35,6 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"  ]] && bindkey "${key[Up]}" up-line-or-beginning-search || bindkey "[A" up-line-or-beginning-search
 [[ -n "${key[Down]}"  ]] && bindkey "${key[Down]}" down-line-or-beginning-search || bindkey "[B" down-line-or-beginning-search
 
-# Latex paths (perl scripts)
-PATH="/home/mrmojo/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/mrmojo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/mrmojo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/mrmojo/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/mrmojo/perl5"; export PERL_MM_OPT;
-export PATH=$PATH:~/libs/latexindent.pl/
-
 # Theme
 source ~/.config/zsh/theme/home.zsh-theme
 
@@ -51,11 +43,3 @@ test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 # Color theme for fzf
 export FZF_DEFAULT_OPTS='--color=bg+:#3B4252,bg:#2E3440,spinner:#81A1C1,hl:#616E88,fg:#D8DEE9,header:#616E88,info:#81A1C1,pointer:#81A1C1,marker:#81A1C1,fg+:#D8DEE9,prompt:#81A1C1,hl+:#81A1C1'
-
-# Alias
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-
-alias :q=exit
-
-alias mplayer="mplayer -lavdopts threads=4"
