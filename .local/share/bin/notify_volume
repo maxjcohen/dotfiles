@@ -1,0 +1,16 @@
+#!/bin/bash
+# Notify volume level
+
+volume_level=$(pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print $5}')
+
+icon=""
+volume_message="$volume_level"
+
+if [ "$(pactl get-sink-mute @DEFAULT_SINK@)" == "Mute: yes" ]; then
+    icon=""
+    volume_message="$volume_message (muted)"
+fi
+
+notify-send "$icon  Volume: $volume_message" \
+    -h int:value:$volume_level \
+    -h string:x-dunst-stack-tag:audio

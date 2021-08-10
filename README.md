@@ -40,6 +40,8 @@ Config folder `.config`
 - `zsh/theme/home.zsh`: homemade zsh theme
 - `alacritty/alacritty.yml`: [alacritty](https://github.com/alacritty/alacritty) config
 - `htop/htoprc`: [htop](https://htop.dev/) config
+- `dunst/dunstrc`: dunst config file
+
 
 Resources folders:
 - `.local`: various local resources (background, fonts, etc.)

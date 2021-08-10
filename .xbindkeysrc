@@ -68,23 +68,23 @@
 # Volume options
 
 # Increase volume
-"pactl set-sink-volume @DEFAULT_SINK@ +5000"
+"pactl set-sink-volume @DEFAULT_SINK@ +5000;notify_volume"
   XF86AudioRaiseVolume
 
 # Decrease volume
-"pactl set-sink-volume @DEFAULT_SINK@ -5000"
+"pactl set-sink-volume @DEFAULT_SINK@ -5000;notify_volume"
   XF86AudioLowerVolume
 
 # Mute volume
-"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle;notify_volume"
   XF86AudioMute
 
 # Increase brightness
-"light -A 10"
+"light -A 10;notify_brightness"
   XF86MonBrightnessUp
 
 # Decrease brightness
-"light -U 10"
+"light -U 10;notify_brightness"
   XF86MonBrightnessDown
 
 "(setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap fr || setxkbmap us"

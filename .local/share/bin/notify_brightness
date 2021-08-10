@@ -1,0 +1,10 @@
+#!/bin/bash
+# Notify volume level
+
+light_level=$(light | cut -d'.' -f1)
+
+icon=""
+
+notify-send "$icon  Brightness: $light_level%" \
+    -h int:value:$light_level \
+    -h string:x-dunst-stack-tag:light
