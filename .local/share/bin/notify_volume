@@ -12,5 +12,6 @@ if [ "$(pactl get-sink-mute @DEFAULT_SINK@)" == "Mute: yes" ]; then
 fi
 
 notify-send "$icon  Volume: $volume_message" \
+    -t 2000 \
     -h int:value:$volume_level \
     -h string:x-dunst-stack-tag:audio
