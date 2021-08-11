@@ -56,6 +56,9 @@ xbindkeys
 # Enable tapping on Elan touchpad
 xinput set-prop 11 312 1
 
+# Launch notification daemon
+dunst &
+
 # Window manager
 # exec dwm
 exec /home/mrmojo/libs/qtile/.env/bin/qtile start
