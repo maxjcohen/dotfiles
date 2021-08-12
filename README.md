@@ -46,5 +46,7 @@ Config folder `.config`
 Resources folders:
 - `.local`: various local resources (background, fonts, etc.)
 
-Various homemade scripts
-- `tmux-launch.sh`: launcher for tmux with lots and lots of windows potential
+Various homemade scripts in `.local/share/bin`:
+- `tmux_launch`: launcher for tmux with lots and lots of windows potential
+- `fzfmenu`: choose over available executables in PATH with fzf and execute
+- `notify_*`: helper scripts to notify current volume and brightness levels
