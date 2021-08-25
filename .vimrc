@@ -194,26 +194,26 @@ set complete+=]
 if has("autocmd")
     augroup LaTex
 	autocmd!
-	au FileType tex set linebreak
+	au FileType tex setlocal linebreak
 	au FileType tex compiler tex
-	au FileType tex set makeprg=pdflatex\ --shell-escape\ %
+	au FileType tex setlocal makeprg=pdflatex\ --shell-escape\ %
 	au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$', '$$': '$$'})
-	au FileType tex set spell
-	au FileType tex set expandtab
+	au FileType tex setlocal spell
+	au FileType tex setlocal expandtab
 	au FileType tex nnoremap <Leader>p :silent execute "!zathura " . expand("%:r") . ".pdf 2> /dev/null &" \| :redraw!<cr>
 	au FileType tex nnoremap <Leader>m :silent execute "!pdflatex % > /dev/null" \| :redraw!<cr>
     augroup END
 
     augroup python
 	autocmd!
-	au FileType python set shiftwidth=4
-	au FileType python set softtabstop=4
-	au FileType python set expandtab
-	au FileType python set textwidth=88
-	au FileType python set colorcolumn=+1
-	au FileType python set foldmethod=indent
-	au FileType python set foldcolumn=0
-	au FileType python set formatoptions=
+	au FileType python setlocal shiftwidth=4
+	au FileType python setlocal softtabstop=4
+	au FileType python setlocal expandtab
+	au FileType python setlocal textwidth=88
+	au FileType python setlocal colorcolumn=+1
+	au FileType python setlocal foldmethod=indent
+	au FileType python setlocal foldcolumn=0
+	au FileType python setlocal formatoptions=
 	au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
 	" au FileType python compiler python
     augroup END
@@ -226,14 +226,14 @@ if has("autocmd")
 	au FileType csv set readonly
 
 	" Git
-	au FileType gitcommit set spell
-	au FileType gitcommit set textwidth=72
-	au FileType gitcommit set colorcolumn=+1
+	au FileType gitcommit setlocal spell
+	au FileType gitcommit setlocal textwidth=72
+	au FileType gitcommit setlocal colorcolumn=+1
 
 	" Nord fix for concealed
 	au Colorscheme * hi! link Conceal Number
 
-	au BufNewFile,BufRead *.zsh-theme set syntax=zsh
+	au BufNewFile,BufRead *.zsh-theme setlocal syntax=zsh
     augroup END
 endif
 
