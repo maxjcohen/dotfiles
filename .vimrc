@@ -231,6 +231,8 @@ if has("autocmd")
 	au FileType gitcommit setlocal textwidth=72
 	au FileType gitcommit setlocal colorcolumn=+1
 
+	au FileType makefile setlocal shiftwidth=8
+
 	" Nord fix for concealed
 	au Colorscheme * hi! link Conceal Number
 
