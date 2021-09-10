@@ -195,11 +195,12 @@ if has("autocmd")
     augroup LaTex
 	autocmd!
 	au FileType tex setlocal linebreak
-	au FileType tex compiler tex
-	au FileType tex setlocal makeprg=pdflatex\ --shell-escape\ %
-	au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$', '$$': '$$'})
+	au FileType tex setlocal nowrap
+	au FileType tex setlocal shiftwidth=8
 	au FileType tex setlocal spell
-	au FileType tex setlocal expandtab
+	au FileType tex compiler tex
+	au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$', '$$': '$$'})
+	au FileType tex setlocal makeprg=pdflatex\ --shell-escape\ %
 	au FileType tex nnoremap <Leader>p :silent execute "!zathura " . expand("%:r") . ".pdf 2> /dev/null &" \| :redraw!<cr>
 	au FileType tex nnoremap <Leader>m :silent execute "!pdflatex % > /dev/null" \| :redraw!<cr>
     augroup END
@@ -241,7 +242,7 @@ endif
 let g:tex_flavor = "latex"
 let g:tex_conceal='abdmg'
 set conceallevel=1
-command -range LatexIndent :<line1>,<line2>!latexindent.pl <NL> :<line1>,<line2>retab
+command -range LatexIndent :<line1>,<line2>!latexindent.pl
 " function! IndentLatex()
 "     :silent !latexindent.pl
 "     :'<,'>retab
