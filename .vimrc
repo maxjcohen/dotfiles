@@ -220,10 +220,20 @@ if has("autocmd")
 
     augroup misc
 	autocmd!
-	" CVS
-	au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
-	au FileType csv set nowrap
-	au FileType csv set readonly
+        " HTML
+        au FileType html,htmldjango,html setlocal shiftwidth=2
+        au FileType html,htmldjango,html setlocal expandtab
+        au FileType html,htmldjango,html setlocal nowrap
+
+        " CVS
+	au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab setlocal filetype=csv
+	au FileType csv setlocal nowrap
+	au FileType csv setlocal readonly
+
+	" Json
+	au FileType json setlocal foldmethod=indent
+	au FileType json nnoremap <Leader>f m`:%!python -m json.tool<cr>``
+	au FileType json nmap <Leader>" ysiw"
 
 	" Git
 	au FileType gitcommit setlocal spell
