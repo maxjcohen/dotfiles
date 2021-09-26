@@ -1,2 +1,5 @@
 # Font Universally Unique IDentifier
 .uuid
+
+# zsh downloaded plugins
+zsh-autosuggestions/
