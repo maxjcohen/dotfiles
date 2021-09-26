@@ -248,7 +248,7 @@ endif
 let g:tex_flavor = "latex"
 let g:tex_conceal='abdmg'
 set conceallevel=1
-command -range LatexIndent :<line1>,<line2>!latexindent.pl
+command! -range LatexIndent :<line1>,<line2>!latexindent.pl
 " function! IndentLatex()
 "     :silent !latexindent.pl
 "     :'<,'>retab
