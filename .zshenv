@@ -11,7 +11,7 @@ export PATH=$PATH:~/libs/latexindent.pl/
 export EDITOR=vim
 
 # Alias
-alias ls='ls --color=auto'
+alias ls='ls -l --color=auto'
 alias grep='grep --color=auto'
 
 alias :q=exit
