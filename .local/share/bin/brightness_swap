@@ -1,0 +1,7 @@
+brit=$(light -G)
+if [ ${brit%.*} -eq 0 ]; then
+    light -I
+else
+    light -O
+    light -S 0
+fi
