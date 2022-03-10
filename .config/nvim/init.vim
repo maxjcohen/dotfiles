@@ -228,3 +228,7 @@ set listchars=tab:▸\ ,eol:¬
 
 " Allow copying ligne with <C-c> in visual mode
 vnoremap <C-c> :w !xsel -bi<CR><CR>
+
+" Change keymap to FR
+nnoremap <Leader>kfr :set keymap=french-azerty<cr>
+nnoremap <Leader>kk :set keymap&<cr>
