@@ -54,7 +54,7 @@ export PATH=$PATH:~/.local/share/bin/
 xbindkeys
 
 # Enable tapping on Elan touchpad
-xinput set-prop 11 312 1
+xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
 
 # Launch notification daemon
 dunst &
