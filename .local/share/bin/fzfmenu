@@ -10,7 +10,6 @@ function menu {
     echo "$(scan_executables)" | fzf \
 	--reverse --no-info \
 	--bind=tab:replace-query,enter:print-query \
-	--history ~/.local/share/qtile/qtile_fzf.hist --history-size 1000 \
 	--preview='man {} 2>/dev/null ||
 	pacman -Qiq {} 2>/dev/null |\
 	grep -E "name|version|description|url|packager| date|reason" -i --color=never' \

@@ -1,0 +1,28 @@
+snippet article "Article template" b
+\documentclass{article}
+% Packages
+\usepackage{amsmath} % Math environments
+\usepackage{amsfonts, dsfont} % Math fonts
+\usepackage{authblk} % Author and affiliations
+\usepackage{hyperref} % Links
+\usepackage{graphicx} % Include graphics
+\usepackage{apalike} % Reference styling
+
+% Commands
+\providecommand{\keywords}[1]{\textbf{\textit{Index terms---}} #1}
+
+\title{${1:Title}}
+
+\author{Max Cohen}
+${2:\affil{Samovar, T\'el\'ecom SudParis, CITI, TIPIC, Institut Polyechnique de Paris}}
+\date{`date "+%A, %d %B"`}
+
+\begin{document}
+\maketitle
+\tableofcontents
+$0
+
+\bibliographystyle{apalike}
+\bibliography{references}
+\end{document}
+endsnippet
