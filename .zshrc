@@ -71,15 +71,7 @@ ZSH_CUSTOM=~/libs/dotfiles/.config/zsh/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions docker docker-compose)
-# zsh-autosuggestions settings
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-    echo "Downloading zsh-autosuggestions"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-fi
-export ZSH_AUTOSUGGEST_STRATEGY=(completion)
-export ZSH_AUTOSUGGEST_USE_ASYNC=true
-# setopt globcomplete
+plugins=(git docker docker-compose)
 
 # Color theme for fzf
 export FZF_DEFAULT_OPTS='--color=bg+:#3B4252,bg:#2E3440,spinner:#81A1C1,hl:#616E88,fg:#D8DEE9,header:#616E88,info:#81A1C1,pointer:#81A1C1,marker:#81A1C1,fg+:#D8DEE9,prompt:#81A1C1,hl+:#81A1C1'
