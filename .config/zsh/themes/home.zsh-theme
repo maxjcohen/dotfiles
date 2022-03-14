@@ -14,7 +14,7 @@ function git_branch(){
     # Get branch name
     git_branch=$(git symbolic-ref --short --quiet HEAD 2>/dev/null) || return
     # Get status
-    local git_status=$(git status --porcelain | awk '{print $1}')
+    local git_status="$(git status --porcelain | awk '{print $1}')"
     # Assign prompt segment color
     [[ -n $git_status ]] && local status_color='%F{yellow}' || local status_color='%F{green}'
     # Count number of deletion/addition
