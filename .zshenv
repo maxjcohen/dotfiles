@@ -5,6 +5,9 @@ export PATH=$PATH:~/.local/share/bin/
 # Editor
 export EDITOR=vim
 
+# Terminal fix for alacritty
+export TERM=xterm-256color
+
 # Alias
 alias ls='ls -l --color=auto'
 alias grep='grep --color=auto'
