@@ -37,7 +37,7 @@ PROMPT+='$(git_branch)'
 # Virtualenv currently activated
 function prompt_virtualenv() {
   if [[ -n $VIRTUAL_ENV  ]]; then
-      echo "%F{#d08770}[$(basename $VIRTUAL_ENV)]%f "
+      echo "%F{cyan}[$(basename $VIRTUAL_ENV)]%f "
   fi
 }
 PROMPT+='$(prompt_virtualenv)'
