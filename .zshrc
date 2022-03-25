@@ -104,10 +104,12 @@ export EDITOR='vi'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Pyenv
-PYENV_ROOT="$HOME/.pyenv"
-if [[ -d $PYENV_ROOT ]]; then
-    export PYENV_ROOT
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-fi
+pyenv_setup() {
+    PYENV_ROOT="$HOME/.pyenv"
+    if [[ -d $PYENV_ROOT ]]; then
+	export PYENV_ROOT
+	export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init --path)"
+	eval "$(pyenv init -)"
+    fi
+}
