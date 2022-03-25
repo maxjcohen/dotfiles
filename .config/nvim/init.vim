@@ -144,6 +144,7 @@ if has("autocmd")
 	au FileType python setlocal foldmethod=indent
 	au FileType python setlocal foldcolumn=0
 	au FileType python setlocal formatoptions=
+	au FileType python nnoremap <Leader>b Oimport pdb;pdb.set_trace()<esc>
     augroup END
 
     augroup misc
