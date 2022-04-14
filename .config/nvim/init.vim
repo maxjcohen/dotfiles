@@ -88,8 +88,10 @@ au BufReadPost *
       \ | endif
 " New terminal with :tab ter and switch with <C-k>
 " In case there's no tmux !
-tnoremap <C-k> <C-w>Ngt
-nnoremap <C-k> gt
+if v:version > 800
+    tnoremap <C-k> <C-w>Ngt
+    nnoremap <C-k> gt
+endif
 
 """"""""""""""""""""""""""""""""""""""""
 " In-file searching
