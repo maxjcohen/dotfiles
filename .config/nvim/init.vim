@@ -22,11 +22,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Git
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', { 'tag': 'v3.0' }
 Plug 'airblade/vim-gitgutter'
 
 " Snippets
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips', { 'tag': '3.1' }
 Plug 'honza/vim-snippets'
 
 call plug#end()
