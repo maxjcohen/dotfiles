@@ -11,3 +11,5 @@
 	defaultBranch = master
 [color]
 	ui = auto
+[push]
+	default = simple
