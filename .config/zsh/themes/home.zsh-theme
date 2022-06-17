@@ -19,7 +19,8 @@ function git_branch(){
     [[ -n $git_status ]] && local status_color='%F{yellow}' || local status_color='%F{green}'
     # Count number of deletion/addition
     local git_removed=$(awk '/D/{cnt++} END {print cnt}' <<< $git_status)
-    local git_added=$(awk '/(\?\?)|M/{cnt++} END {print cnt}' <<< $git_status)
+    local git_added=$(awk '/(\?\?)/{cnt++} END {print cnt}' <<< $git_status)
+    local git_modified=$(awk '/(M)/{cnt++} END {print cnt}' <<< $git_status)
 
     # Compile information
     local prompt="$status_color($git_branch"
@@ -28,6 +29,9 @@ function git_branch(){
     fi
     if [[ -n $git_added ]]; then
  	prompt+=" +$git_added"
+    fi
+    if [[ -n $git_modified ]]; then
+ 	prompt+=" ~$git_modified"
     fi
     prompt+=')%f '
     echo $prompt
