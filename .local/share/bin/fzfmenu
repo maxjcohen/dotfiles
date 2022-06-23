@@ -9,7 +9,6 @@ function scan_executables {
 function menu {
     echo "$(scan_executables)" | fzf \
 	--reverse --no-info \
-	--bind=tab:replace-query,enter:print-query \
 	--preview='man {} 2>/dev/null ||
 	pacman -Qiq {} 2>/dev/null |\
 	grep -E "name|version|description|url|packager| date|reason" -i --color=never' \

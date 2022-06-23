@@ -15,7 +15,7 @@ call plug#begin()
 " Theme / UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'arcticicestudio/nord-vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " Mappings
 Plug 'tpope/vim-surround'
@@ -55,12 +55,13 @@ nnoremap <C-p> :find *
 set wildignore+=*.pyc,*.ipynb,**/.git/**,**/.env/**
 
 " Theme / UI
+set termguicolors
+set background=dark
 try
-    colorscheme nord
-    let g:airline_theme='nord'
+    colorscheme catppuccin_mocha
+    let g:airline_theme='term'
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
-    set background=dark
 endtry
 " Syntax highlighting
 if has("syntax")
@@ -68,6 +69,7 @@ if has("syntax")
 endif
 " Always display status line
 set laststatus=2
+set noshowmode
 set cursorline
 
 """"""""""""""""""""""""""""""""""""""""
