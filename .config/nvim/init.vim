@@ -55,6 +55,9 @@ nnoremap <C-p> :find *
 set wildignore+=*.pyc,*.ipynb,**/.git/**,**/.env/**
 
 " Theme / UI
+if has("syntax")
+  syntax on
+endif
 set background=dark
 try
     colorscheme catppuccin_mocha
@@ -67,10 +70,6 @@ try
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
 endtry
-" Syntax highlighting
-if has("syntax")
-  syntax on
-endif
 " Always display status line
 set laststatus=2
 set noshowmode
