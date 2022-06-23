@@ -55,10 +55,14 @@ nnoremap <C-p> :find *
 set wildignore+=*.pyc,*.ipynb,**/.git/**,**/.env/**
 
 " Theme / UI
-set termguicolors
 set background=dark
 try
     colorscheme catppuccin_mocha
+    if has('termguicolors')
+	set termguicolors
+    else
+	hi Normal           guisp=NONE      guifg=#CDD6F4   guibg=#1E1E2E   ctermfg=254     ctermbg=300  gui=NONE           cterm=NONE
+    endif
     let g:airline_theme='term'
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
