@@ -16,3 +16,5 @@ alias :q=exit
 alias fuck="sudo !!"
 
 alias mplayer="mplayer -lavdopts threads=4"
+alias mpv="mpv --vo=gpu --hwdec=vaapi"
+alias feh="feh --scale-down"
