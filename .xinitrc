@@ -55,6 +55,8 @@ xbindkeys
 
 # Enable tapping on Elan touchpad
 xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput --set-prop 11 "libinput Disable While Typing Enabled" 0
 
 # Launch notification daemon
 dunst &
