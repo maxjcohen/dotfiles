@@ -13,8 +13,7 @@ endif
 call plug#begin()
 
 " Theme / UI
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " Mappings
@@ -64,9 +63,9 @@ try
     if has('termguicolors')
 	set termguicolors
     else
-	hi Normal           guisp=NONE      guifg=#CDD6F4   guibg=#1E1E2E   ctermfg=254     ctermbg=300  gui=NONE           cterm=NONE
+	hi Normal guisp=NONE guifg=#CDD6F4 guibg=#1E1E2E ctermfg=254 ctermbg=300 gui=NONE cterm=NONE
     endif
-    let g:airline_theme='term'
+    let g:lightline = {'colorscheme': 'jellybeans'}
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
 endtry
